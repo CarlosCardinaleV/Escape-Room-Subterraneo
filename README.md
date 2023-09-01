@@ -1,5 +1,7 @@
 # Escape Room Subterraneo
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+
 The game **Escape Room Subterráneo** is a challenge where a team of three players will be tested for their ability to progress as far as possible in a tournament of strategy, survival, and escape. Each team member receives three magical gems, and together they must strive to escape their confinement by creating spells that are cast on the locks of the three exit doors, located in each of the three consecutive caverns.
 
 ## Objective
