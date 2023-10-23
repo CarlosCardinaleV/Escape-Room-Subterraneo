@@ -2,7 +2,8 @@ import random
 
 class Gema:
     """
-    La clase Gema representa una gema con atributos como tipo, jugador, vida, ataque y defensa.
+    La clase Gema representa una gema con atributos como tipo, jugador, vida, ataque
+    y defensa.
     """
     def __init__(self, tipo="", jugador="", ataque=0.0, defensa=0.0):
         """
@@ -10,7 +11,8 @@ class Gema:
 
         Args:
             tipo (str): El tipo de la gema (por defecto, cadena vacía).
-            jugador (str): El nombre del jugador propietario de la gema (por defecto, cadena vacía).
+            jugador (str): El nombre del jugador propietario de la gema (por defecto,
+            cadena vacía).
             ataque (float): El valor de ataque de la gema (por defecto, 0.0).
             defensa (float): El valor de defensa de la gema (por defecto, 0.0).
         """
@@ -50,7 +52,8 @@ class Gema:
 
     def __str__(self):
         """
-        Devuelve una representación de cadena de la gema, incluyendo información sobre el jugador, vida, ataque, defensa y tipo de gema.
+        Devuelve una representación de cadena de la gema, incluyendo información sobre
+        el jugador, vida, ataque, defensa y tipo de gema.
 
         Returns:
             str: Una cadena que describe la gema.
@@ -68,7 +71,8 @@ class Gema:
 
     def desplegarGema(self):
         """
-        Muestra información sobre la gema en la consola, incluyendo el jugador, vida, ataque, defensa y tipo de gema.
+        Muestra información sobre la gema en la consola, incluyendo el jugador, vida,
+        ataque, defensa y tipo de gema.
         """
         print("Gema de: " + self.jugadorGema)
         print("Vida de la Gema: " + str(self.vidaGema * 100.0) + "%")
