@@ -2,29 +2,35 @@ import random
 
 class Gema:
     """
-    La clase Gema representa una gema con atributos como tipo, jugador, vida, ataque
-    y defensa.
+    La clase Gema representa una gema con atributos como tipo, jugador,
+    vida, ataque y defensa.
     """
-    def __init__(self, tipo="", jugador="", ataque=0.0, defensa=0.0):
+    def __init__(self, tipo="no especificado", jugador="anonimo", ataque=0.0, defensa=0.0, vida=1.0):
         """
         Inicializa una nueva instancia de la clase Gema.
 
         Args:
-            tipo (str): El tipo de la gema (por defecto, cadena vacía).
-            jugador (str): El nombre del jugador propietario de la gema (por defecto,
-            cadena vacía).
-            ataque (float): El valor de ataque de la gema (por defecto, 0.0).
-            defensa (float): El valor de defensa de la gema (por defecto, 0.0).
+            tipo (str): El tipo de la gema (por defecto, "no especificado").
+            jugador (str): El nombre del jugador propietario de la gema
+                (por defecto, "anonimo").
+            ataque (float): El valor de ataque de la gema (por defecto, 0.0). 
+                Si no se especifica, se generará aleatoriamente dentro del
+                rango [0.6, 1.0] y se expresará como un porcentaje.
+            defensa (float): El valor de defensa de la gema (por defecto, 0.0). 
+                Si no se especifica, se generará aleatoriamente dentro del
+                rango [0.1, 0.5] y se expresará como un porcentaje.
+            vida (float): El valor de vida de la gema (por defecto, 1.0).
         """
         self.tipoGema = tipo
         self.jugadorGema = jugador
-        self.vidaGema = 1.0
-        self.ataqueGema = ataque
-        self.defensaGema = defensa
+        self.vidaGema = vida
+        self.ataqueGema = round(random.uniform(0.6, 1.0) * 100, 2)
+        self.defensaGema = round(random.uniform(0.1, 0.5) * 100, 2)
 
     def __random_type(self):
         """
-        Método privado que genera aleatoriamente un tipo de gema (FUEGO, AGUA, METAL).
+        Método privado que genera aleatoriamente un tipo de gema
+        (FUEGO, AGUA, METAL).
 
         Returns:
             str: El tipo de gema generado aleatoriamente.
@@ -37,19 +43,6 @@ class Gema:
         else:
             return "METAL"
 
-    def __random_value(self, min_val, max_val):
-        """
-        Método privado que genera un valor aleatorio en un rango específico.
-
-        Args:
-            min_val (float): El valor mínimo del rango.
-            max_val (float): El valor máximo del rango.
-
-        Returns:
-            float: Un valor aleatorio dentro del rango especificado.
-        """
-        return min_val + random.random() * (max_val - min_val)
-
     def __str__(self):
         """
         Devuelve una representación de cadena de la gema, incluyendo información sobre
@@ -61,8 +54,8 @@ class Gema:
         informacion = ""
         informacion += "Gema de: " + self.jugadorGema + "\n"
         informacion += "Vida de la Gema: " + str(self.vidaGema * 100.0) + "%\n"
-        informacion += "Ataque: " + str(self.ataqueGema) + "\n"
-        informacion += "Defensa: " + str(self.defensaGema) + "\n"
+        informacion += "Ataque: " + str(self.ataqueGema) + "%\n"
+        informacion += "Defensa: " + str(self.defensaGema) + "%\n"
         informacion += "El tipo de Gema: " + self.tipoGema + "\n"
         return informacion
 
@@ -172,17 +165,3 @@ class Gema:
             defensa (float): El valor de defensa de la gema a establecer.
         """
         self.defensaGema = defensa
-
-    @staticmethod
-    def numRandom(min_val, max_val):
-        """
-        Método estático que genera un número aleatorio dentro de un rango especificado.
-
-        Args:
-            min_val (float): El valor mínimo del rango.
-            max_val (float): El valor máximo del rango.
-
-        Returns:
-            float: Un número aleatorio dentro del rango especificado.
-        """
-        return min_val + random.random() * (max_val - min_val)
