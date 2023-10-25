@@ -1,3 +1,4 @@
+import random
 import Gema
 
 class Jugador:
@@ -5,20 +6,23 @@ class Jugador:
     La clase Jugador representa a un jugador con atributos como su nombre,
     estado de vida, nivel de oxígeno y gemas.
     """
-    def __init__(self, name="Jugador"):
+    def __init__(self, nombre="anonimo"):
         """
         Inicializa una nueva instancia de la clase Jugador.
 
         Args:
-            name (str): El nombre del jugador (por defecto, "Jugador").
+            nombre (str): El nombre del jugador (por defecto, "anonimo").
         """
         self.vidaJugador = True
-        self.oxigenoJugador = 1.0
+        self.oxigenoJugador = 1.0 * 100
         tipo = ["FUEGO", "AGUA", "METAL"]
-        self.nombreJugador = name
+        self.nombreJugador = nombre
         self.gemaJugador = []
         for i in range(3):
-            self.gemaJugador.append(Gema(jugador=self.nombreJugador, tipo=tipo[i]))
+            nueva_gema = Gema.Gema(jugador=self.nombreJugador, tipo=tipo[i],
+                        ataque=round(random.uniform(0.6, 1.0) * 100, 2),
+                        defensa=round(random.uniform(0.1, 0.5) * 100, 2))
+            self.gemaJugador.append(nueva_gema)
 
     def getGemaJugador(self, cualGema):
         """
@@ -118,34 +122,19 @@ class Jugador:
 
     def __str__(self):
         """
-        Devuelve una representación de cadena del jugador, incluyendo información sobre
-        su nombre, oxígeno, estado de vida y gemas.
+        Devuelve una representación de cadena del jugador, incluyendo
+        información sobre su nombre, oxígeno, estado de vida y gemas.
 
         Returns:
             str: Una cadena que describe el jugador y sus gemas.
         """
         informacion = ""
         informacion = "\n" + "Nombre del jugador: " + self.nombreJugador + "\n"
-        informacion += "Oxigeno del jugador: " + str(self.oxigenoJugador) + "\n"
-        informacion += "Sigue vivo? " + str(self.vidaJugador) + "\n"
+        informacion += "Oxigeno del jugador: " + str(self.oxigenoJugador) + "%\n"
+        informacion += "Sigue vivo? " + ("Sí" if self.vidaJugador else "No") + "\n"
         informacion += "Gemas: \n"
         for i in range(3):
             informacion += self.gemaJugador[i].__str__() + "\n"
-        return informacion
-
-    def toStringJugador(self):
-        """
-        Devuelve una representación de cadena del jugador de una forma más compacta.
-
-        Returns:
-            str: Una cadena que describe el jugador de manera más compacta.
-        """
-        informacion = ""
-        informacion = "\n\n" + "Nombre del jugador: " + self.nombreJugador + "\t"
-        informacion += "Sigue vivo? " + str(self.vidaJugador) + "  \n"
-        informacion += "Gemas: \t"
-        for i in range(3):
-            informacion += "  " + self.gemaJugador[i].toStringGema() + "  \t"
         return informacion
 
     def desplegarJugador(self):
