@@ -1,27 +1,34 @@
 import Jugador
 
 class Equipo:
-    def __init__(self, nombre="Equipo #"):
+    def __init__(self, nombre="Equipo #", nombre_jugador_a="fulano 1",
+                 nombre_jugador_b="fulano 2", nombre_jugador_c="fulano 3"):
         """
         Inicializa una instancia de Equipo.
 
         Args:
             nombre (str): El nombre del equipo (por defecto, "Equipo #").
         """
-        self.nombreEquipo = nombre
-        self.jugadorEquipo = [Jugador() for _ in range(3)]
-        self.vivoEquipo = True
+        self.nombre_equipo = nombre
+        self.nombres_jugadores = [nombre_jugador_a, nombre_jugador_b, nombre_jugador_c]
+        #self.nombreJugadorA = nombreJugadorA
+        #self.nombreJugadorB = nombreJugadorB
+        #self.nombreJugadorC = nombreJugadorC
+        self.jugador_del_equipo = []
+        for i in range(3):
+            self.jugador_del_equipo.append(Jugador.Jugador(self.nombres_jugadores[i]))
+        self.equipo_vivo = True
 
-    def getNombreEquipo(self):
+    def get_nombre_equipo(self):
         """
         Obtiene el nombre del equipo.
 
         Returns:
             str: El nombre del equipo.
         """
-        return self.nombreEquipo
+        return self.nombre_equipo
 
-    def getJugadorEquipo(self, cualJugador):
+    def get_jugador_del_equipo(self, cual_jugador):
         """
         Obtiene un jugador en el equipo por su número (1, 2 o 3).
 
@@ -31,23 +38,30 @@ class Equipo:
         Returns:
             Jugador: El jugador seleccionado.
         """
-        if cualJugador == 1:
-            return self.jugadorEquipo[0]
-        elif cualJugador == 2:
-            return self.jugadorEquipo[1]
-        else:
-            return self.jugadorEquipo[2]
+        try:
+            if cual_jugador+1 == 1:
+                return self.jugadorEquipo[cual_jugador]
+            elif cual_jugador+1 == 2:
+                return self.jugadorEquipo[cual_jugador]
+            elif cual_jugador+1 == 3:
+                return self.jugadorEquipo[cual_jugador]
+            else:
+                print("Número de gema no válido. Debe ser 1, 2 o 3.")
+                return None
+        except IndexError:
+            print("Índice de gema fuera de rango. El jugador no tiene esa gema.")
+            return None
 
-    def getVivoEquipo(self):
+    def get_equipo_vivo(self):
         """
         Comprueba si el equipo está vivo.
 
         Returns:
             bool: True si el equipo está vivo, False de lo contrario.
         """
-        return self.vivoEquipo
+        return self.equipo_vivo
 
-    def setNombreEquipo(self, equipo):
+    def set_nombre_equipo(self, equipo):
         """
         Establece el nombre del equipo.
 
@@ -57,9 +71,9 @@ class Equipo:
         Returns:
             None
         """
-        self.nombreEquipo = equipo
+        self.nombre_equipo = equipo
 
-    def setJugadorEquipo(self, jugador, cualJugador):
+    def set_jugador_equipo(self, jugador, cual_jugador):
         """
         Establece un jugador en el equipo por su número (1, 2 o 3).
 
@@ -70,9 +84,9 @@ class Equipo:
         Returns:
             None
         """
-        self.jugadorEquipo[cualJugador - 1] = jugador
+        self.jugadorEquipo[cual_jugador - 1] = jugador
 
-    def setVivoEquipo(self, vivo):
+    def se_equipo_vivo(self, vivo):
         """
         Establece el estado de vida del equipo.
 
@@ -82,25 +96,7 @@ class Equipo:
         Returns:
             None
         """
-        self.vivoEquipo = vivo
-
-    def toStringEquipo(self):
-        """
-        Obtiene una representación de cadena del equipo, incluyendo información
-        sobre su nombre, jugadores vivos y gemas.
-
-        Returns:
-            str: Una cadena que describe el equipo.
-        """
-        informacion = "Nombre del equipo: " + self.nombreEquipo + "   \t"
-        cuantosJugadoresVivos = sum(1 for jugador in self.jugadorEquipo if jugador.getVidaJugador())
-        informacion += "Cuantos Vivos:   " + str(cuantosJugadoresVivos) + " \n"
-        informacion += "Jugadores:   \t" + self.getJugadorEquipo(1).getNombreJugador() + "    "
-        informacion += self.getJugadorEquipo(2).getNombreJugador() + "    "
-        informacion += self.getJugadorEquipo(3).getNombreJugador() + "  \n\n"
-        for i in range(3):
-            informacion += self.jugadorEquipo[i].toStringJugador()
-        return informacion
+        self.equipo_vivo = vivo
 
     def __str__(self):
         """
@@ -110,33 +106,16 @@ class Equipo:
         Returns:
             str: Una cadena que describe el equipo.
         """
-        informacion = "\n" + "Nombre del equipo: " + self.nombreEquipo + "\n"
-        cuantosJugadoresVivos = sum(1 for jugador in self.jugadorEquipo if jugador.getVidaJugador())
-        informacion += "Cuantos Vivos: " + str(cuantosJugadoresVivos) + "\n"
-        informacion += "Jugadores:   \t"
+        informacion = "\n" + "Nombre del equipo: " + self.nombre_equipo + "\n"
+        cuantos_jugadores_vivos = sum(1 for jugador in self.jugador_del_equipo if jugador.get_vida_jugador())
+        informacion += "Cuantos jugadores vivos: " + str(cuantos_jugadores_vivos) + "\n"
+        informacion += "Jugadores:\n"
+        #for i in range(3):
+        #    informacion += self.jugadorDelEquipo[i].getNombreJugador() + "    \t"
+        #informacion += "\n"
         for i in range(3):
-            informacion += self.jugadorEquipo[i].getNombreJugador() + "    \t"
-        informacion += "\n"
-        for i in range(3):
+            informacion += "\t" + self.jugador_del_equipo[i].get_nombre_jugador() + ":\n"
             for j in range(3):
-                informacion += self.jugadorEquipo[i].getGemaJugador(j).toString() + "\n"
+                informacion += str(self.jugador_del_equipo[i].get_gema_jugador(j)) + "\n"
             informacion += "\n"
         return informacion
-
-    def desplegarEquipo(self):
-        """
-        Imprime información sobre el equipo, incluyendo el nombre del equipo,
-        jugadores vivos y gemas.
-
-        Returns:
-            None
-        """
-        print("Nombre del equipo: " + self.nombreEquipo)
-        cuantosJugadoresVivos = sum(1 for jugador in self.jugadorEquipo if jugador.getVidaJugador())
-        print("Cuantos Vivos: " + str(cuantosJugadoresVivos))
-        print("Jugadores:\n")
-        for i in range(3):
-            print(self.jugadorEquipo[i].getNombreJugador() + " -->\t", end="")
-            for j in range(3):
-                print(self.jugadorEquipo[i].getGemaJugador(j).toStringGema() + "\t", end="")
-            print("\n")
