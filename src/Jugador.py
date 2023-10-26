@@ -36,11 +36,11 @@ class Jugador:
         """
         try:
             if cualGema == 1:
-                return self.gemaJugador[0]
+                return self.gemaJugador[cualGema-1]
             elif cualGema == 2:
-                return self.gemaJugador[1]
+                return self.gemaJugador[cualGema-1]
             elif cualGema == 3:
-                return self.gemaJugador[2]
+                return self.gemaJugador[cualGema-1]
             else:
                 # Handle the case when cualGema is not 1, 2, or 3
                 print("Número de gema no válido. Debe ser 1, 2 o 3.")
@@ -59,12 +59,19 @@ class Jugador:
             cualGema (int): El número de la gema a la que se le cambiará la vida (1, 2 o 3).
             vida (float): El nuevo valor de vida de la gema.
         """
-        if cualGema == 1:
-            self.gemaJugador[0].setVidaGema(vida)
-        elif cualGema == 2:
-            self.gemaJugador[1].setVidaGema(vida)
-        else:
-            self.gemaJugador[2].setVidaGema(vida)
+        try:
+            if cualGema == 1:
+                self.gemaJugador[cualGema-1].setVidaGema(vida)
+            elif cualGema == 2:
+                self.gemaJugador[cualGema-1].setVidaGema(vida)
+            elif cualGema == 3:
+                self.gemaJugador[cualGema-1].setVidaGema(vida)
+            else:
+                print("Número de gema no válido. Debe ser 1, 2 o 3.")
+                return None
+        except IndexError:
+            print("Índice de gema fuera de rango. El jugador no tiene esa gema.")
+            return None
 
     def getNombreJugador(self):
         """
