@@ -17,11 +17,11 @@ class Gema:
             defensa (float): El valor de defensa de la gema (por defecto, 0.0).
             vida (float): El valor de vida de la gema (por defecto, 1.0).
         """
-        self.tipoGema = tipo
-        self.jugadorGema = jugador
-        self.vidaGema = vida
-        self.ataqueGema = ataque
-        self.defensaGema = defensa
+        self.tipo_gema = tipo
+        self.jugador_gema = jugador
+        self.vida_gema = vida
+        self.ataque_gema = ataque
+        self.defensa_gema = defensa
 
     def __str__(self):
         """
@@ -33,90 +33,90 @@ class Gema:
         """
         informacion = ""
         #informacion += "Gema de: " + self.jugadorGema + "\n"
-        informacion += "\tVida de la Gema: " + str(self.vidaGema * 100.0) + "%\n"
-        informacion += "\tAtaque: " + str(self.ataqueGema) + "%\n"
-        informacion += "\tDefensa: " + str(self.defensaGema) + "%\n"
-        informacion += "\tEl tipo de Gema: " + self.tipoGema + "\n"
+        informacion += "\tVida de la Gema: " + str(self.vida_gema * 100.0) + "%\n"
+        informacion += "\tAtaque: " + str(self.ataque_gema) + "%\n"
+        informacion += "\tDefensa: " + str(self.defensa_gema) + "%\n"
+        informacion += "\tEl tipo de Gema: " + self.tipo_gema + "\n"
         return informacion
 
     def __str__gema(self):
-        return f"{self.tipoGema}:{self.vidaGema * 100.0}%"
+        return f"{self.tipo_gema}:{self.vida_gema * 100.0}%"
 
-    def desplegarGema(self):
+    def desplegar_gema(self):
         """
         Muestra información sobre la gema en la consola, incluyendo el jugador, vida,
         ataque, defensa y tipo de gema.
         """
-        print("Gema de: " + self.jugadorGema)
-        print("Vida de la Gema: " + str(self.vidaGema * 100.0) + "%")
-        print("Ataque: " + str(self.ataqueGema))
-        print("Defensa: " + str(self.defensaGema))
-        print("El tipo de Gema: " + self.tipoGema)
+        print("Gema de: " + self.jugador_gema)
+        print("Vida de la Gema: " + str(self.vida_gema * 100.0) + "%")
+        print("Ataque: " + str(self.ataque_gema))
+        print("Defensa: " + str(self.defensa_gema))
+        print("El tipo de Gema: " + self.tipo_gema)
 
-    def getTipoGema(self):
+    def get_tipo_gema(self):
         """
         Obtiene el tipo de la gema.
 
         Returns:
             str: El tipo de la gema.
         """
-        return self.tipoGema
+        return self.tipo_gema
 
-    def getPropietarioGema(self):
+    def get_propietario_gema(self):
         """
         Obtiene el nombre del jugador propietario de la gema.
 
         Returns:
             str: El nombre del jugador propietario de la gema.
         """
-        return self.jugadorGema
+        return self.jugador_gema
 
-    def getVidaGema(self):
+    def get_vida_gema(self):
         """
         Obtiene el valor de vida de la gema.
 
         Returns:
             float: El valor de vida de la gema.
         """
-        return self.vidaGema
+        return self.vida_gema
 
-    def getAtaqueGema(self):
+    def get_ataque_gema(self):
         """
         Obtiene el valor de ataque de la gema.
 
         Returns:
             float: El valor de ataque de la gema.
         """
-        return self.ataqueGema
+        return self.ataque_gema
 
-    def getDefensaGema(self):
+    def get_defensa_gema(self):
         """
         Obtiene el valor de defensa de la gema.
 
         Returns:
             float: El valor de defensa de la gema.
         """
-        return self.defensaGema
+        return self.defensa_gema
 
-    def setTipoGema(self, tipo):
+    def set_tipo_gema(self, tipo):
         """
         Establece el tipo de la gema.
 
         Args:
             tipo (str): El tipo de la gema a establecer.
         """
-        self.tipoGema = tipo
+        self.tipo_gema = tipo
 
-    def setJugadorGema(self, jugador):
+    def set_jugador_gema(self, jugador):
         """
         Establece el nombre del jugador propietario de la gema.
 
         Args:
             jugador (str): El nombre del jugador propietario de la gema.
         """
-        self.jugadorGema = jugador
+        self.jugador_gema = jugador
 
-    def setVidaGema(self, vida):
+    def set_vida_gema(self, vida):
         """
         Establece el valor de vida de la gema, asegurándose de que no sea un valor negativo.
 
@@ -124,24 +124,24 @@ class Gema:
             vida (float): El valor de vida de la gema a establecer.
         """
         if vida >= 0:
-            self.vidaGema = vida
+            self.vida_gema = vida
         else:
-            self.vidaGema = 0.0
+            self.vida_gema = 0.0
 
-    def setAtaqueGema(self, ataque):
+    def set_ataque_gema(self, ataque):
         """
         Establece el valor de ataque de la gema.
 
         Args:
             ataque (float): El valor de ataque de la gema a establecer.
         """
-        self.ataqueGema = ataque
+        self.ataque_gema = ataque
 
-    def setDefensaGema(self, defensa):
+    def set_defensa_gema(self, defensa):
         """
         Establece el valor de defensa de la gema.
 
         Args:
             defensa (float): El valor de defensa de la gema a establecer.
         """
-        self.defensaGema = defensa
+        self.defensa_gema = defensa
