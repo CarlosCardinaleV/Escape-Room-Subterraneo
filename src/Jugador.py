@@ -35,12 +35,12 @@ class Jugador:
             Gema: La gema seleccionada, o None si el número de gema no es válido.
         """
         try:
-            if cualGema == 1:
-                return self.gemaJugador[cualGema-1]
-            elif cualGema == 2:
-                return self.gemaJugador[cualGema-1]
-            elif cualGema == 3:
-                return self.gemaJugador[cualGema-1]
+            if cualGema+1 == 1:
+                return self.gemaJugador[0]
+            elif cualGema+1 == 2:
+                return self.gemaJugador[1]
+            elif cualGema+1 == 3:
+                return self.gemaJugador[2]
             else:
                 # Handle the case when cualGema is not 1, 2, or 3
                 print("Número de gema no válido. Debe ser 1, 2 o 3.")
@@ -60,12 +60,12 @@ class Jugador:
             vida (float): El nuevo valor de vida de la gema.
         """
         try:
-            if cualGema == 1:
-                self.gemaJugador[cualGema-1].setVidaGema(vida)
-            elif cualGema == 2:
-                self.gemaJugador[cualGema-1].setVidaGema(vida)
-            elif cualGema == 3:
-                self.gemaJugador[cualGema-1].setVidaGema(vida)
+            if cualGema+1 == 1:
+                self.gemaJugador[cualGema].setVidaGema(vida)
+            elif cualGema+1 == 2:
+                self.gemaJugador[cualGema].setVidaGema(vida)
+            elif cualGema+1 == 3:
+                self.gemaJugador[cualGema].setVidaGema(vida)
             else:
                 print("Número de gema no válido. Debe ser 1, 2 o 3.")
                 return None
