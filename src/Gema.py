@@ -32,7 +32,7 @@ class Gema:
             str: Una cadena que describe la gema.
         """
         informacion = ""
-        #informacion += "Gema de: " + self.jugadorGema + "\n"
+        informacion += "\tGema de: " + self.jugador_gema + "\n"
         informacion += "\tVida de la Gema: " + str(self.vida_gema * 100.0) + "%\n"
         informacion += "\tAtaque: " + str(self.ataque_gema) + "%\n"
         informacion += "\tDefensa: " + str(self.defensa_gema) + "%\n"
@@ -41,17 +41,6 @@ class Gema:
 
     def __str__gema(self):
         return f"{self.tipo_gema}:{self.vida_gema * 100.0}%"
-
-    def desplegar_gema(self):
-        """
-        Muestra información sobre la gema en la consola, incluyendo el jugador, vida,
-        ataque, defensa y tipo de gema.
-        """
-        print("Gema de: " + self.jugador_gema)
-        print("Vida de la Gema: " + str(self.vida_gema * 100.0) + "%")
-        print("Ataque: " + str(self.ataque_gema))
-        print("Defensa: " + str(self.defensa_gema))
-        print("El tipo de Gema: " + self.tipo_gema)
 
     def get_tipo_gema(self):
         """
