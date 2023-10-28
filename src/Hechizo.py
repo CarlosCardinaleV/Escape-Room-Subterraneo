@@ -11,10 +11,10 @@ class Hechizo:
             (por defecto, 1.0).
             contador (int): El contador del hechizo (por defecto, 0).
         """
-        self.segundosHechizo = segundos
-        self.contadorHechizo = contador
+        self.segundos_hechizo = segundos
+        self.contador_hechizo = contador
 
-    def setContadorHechizo(self, contador):
+    def set_contador_hechizo(self, contador):
         """
         Establece el contador del hechizo.
 
@@ -24,18 +24,18 @@ class Hechizo:
         Returns:
             None
         """
-        self.contadorHechizo += contador
+        self.contador_hechizo += contador
 
-    def getContadorHechizo(self):
+    def get_contador_hechizo(self):
         """
         Obtiene el valor del contador del hechizo.
 
         Returns:
             int: El valor del contador del hechizo.
         """
-        return self.contadorHechizo
+        return self.contador_hechizo
 
-    def setSegundosHechizo(self, segundos):
+    def set_segundos_hechizo(self, segundos):
         """
         Establece la duración del hechizo en segundos.
 
@@ -47,20 +47,20 @@ class Hechizo:
             None
         """
         if segundos >= 1.0:
-            self.segundosHechizo = segundos
+            self.segundos_hechizo = segundos
         else:
-            self.segundosHechizo = 1.0
+            self.segundos_hechizo = 1.0
 
-    def getSegundosHechizo(self):
+    def get_segundos_hechizo(self):
         """
         Obtiene la duración en segundos del hechizo.
 
         Returns:
             float: La duración en segundos del hechizo.
         """
-        return self.segundosHechizo
+        return self.segundos_hechizo
 
-    def vidaEnfrentamientoJugadorCerrojo(self, jugador, cerrojo, cualGemaJugador, cualGemaCerrojo):
+    def vida_enfrentamiento_jugador_cerrojo(self, jugador, cerrojo, cualGemaJugador, cualGemaCerrojo):
         """
         Realiza un enfrentamiento entre un jugador y un cerrojo usando un hechizo. Calcula los
         cambios en la vida de las gemas
@@ -87,27 +87,27 @@ class Hechizo:
         tipoGemaCerrojo = cerrojo.getGemaCerrojo(cualGemaCerrojo).getTipoGema()
 
         if tipoGemaJugador == tipoGemaCerrojo:
-            vidaGemaJugador -= (ataqueGemaCerrojo - defensaGemaJugador) * self.segundosHechizo
-            vidaGemaCerrojo -= (ataqueGemaJugador - defensaGemaCerrojo) * self.segundosHechizo
+            vidaGemaJugador -= (ataqueGemaCerrojo - defensaGemaJugador) * self.segundos_hechizo
+            vidaGemaCerrojo -= (ataqueGemaJugador - defensaGemaCerrojo) * self.segundos_hechizo
             cerrojo.setVidaGemaCerrojo(cualGemaCerrojo, vidaGemaCerrojo)
             jugador.setVidaGemaJugador(cualGemaJugador, vidaGemaJugador)
         elif tipoGemaJugador == "FUEGO" and tipoGemaCerrojo == "METAL":
-            vidaGemaCerrojo -= (ataqueGemaJugador - defensaGemaCerrojo) * self.segundosHechizo
+            vidaGemaCerrojo -= (ataqueGemaJugador - defensaGemaCerrojo) * self.segundos_hechizo
             cerrojo.setVidaGemaCerrojo(cualGemaCerrojo, vidaGemaCerrojo)
         elif tipoGemaJugador == "METAL" and tipoGemaCerrojo == "FUEGO":
-            vidaGemaJugador -= (ataqueGemaCerrojo - defensaGemaJugador) * self.segundosHechizo
+            vidaGemaJugador -= (ataqueGemaCerrojo - defensaGemaJugador) * self.segundos_hechizo
             jugador.setVidaGemaJugador(cualGemaJugador, vidaGemaJugador)
         elif tipoGemaJugador == "AGUA" and tipoGemaCerrojo == "METAL":
-            vidaGemaJugador -= (ataqueGemaCerrojo - defensaGemaJugador) * self.segundosHechizo
+            vidaGemaJugador -= (ataqueGemaCerrojo - defensaGemaJugador) * self.segundos_hechizo
             jugador.setVidaGemaJugador(cualGemaJugador, vidaGemaJugador)
         elif tipoGemaJugador == "METAL" and tipoGemaCerrojo == "AGUA":
-            vidaGemaCerrojo -= (ataqueGemaJugador - defensaGemaCerrojo) * self.segundosHechizo
+            vidaGemaCerrojo -= (ataqueGemaJugador - defensaGemaCerrojo) * self.segundos_hechizo
             cerrojo.setVidaGemaCerrojo(cualGemaCerrojo, vidaGemaCerrojo)
         elif tipoGemaJugador == "FUEGO" and tipoGemaCerrojo == "AGUA":
-            vidaGemaJugador -= (ataqueGemaCerrojo - defensaGemaJugador) * self.segundosHechizo
+            vidaGemaJugador -= (ataqueGemaCerrojo - defensaGemaJugador) * self.segundos_hechizo
             jugador.setVidaGemaJugador(cualGemaJugador, vidaGemaJugador)
         elif tipoGemaJugador == "AGUA" and tipoGemaCerrojo == "FUEGO":
-            vidaGemaCerrojo -= (ataqueGemaJugador - defensaGemaCerrojo) * self.segundosHechizo
+            vidaGemaCerrojo -= (ataqueGemaJugador - defensaGemaCerrojo) * self.segundos_hechizo
             cerrojo.setVidaGemaCerrojo(cualGemaCerrojo, vidaGemaCerrojo)
         else:
             print("Hubo un error :(")
