@@ -13,16 +13,16 @@ class Jugador:
         Args:
             nombre (str): El nombre del jugador (por defecto, "anonimo").
         """
-        self.vida_jugador = True
-        self.oxigeno_jugador = 1.0 * 100
-        TIPO = ["FUEGO", "AGUA", "METAL"]
-        self.nombre_jugador = nombre
-        self.gema_jugador = []
+        TIPO = ["AGUA", "FUEGO", "METAL"]
+        self.__vida_jugador = True
+        self.__oxigeno_jugador = 1.0 * 100
+        self.__nombre_jugador = nombre
+        self.__gema_jugador = []
         for i in range(3):
-            nueva_gema = Gema.Gema(jugador=self.nombre_jugador, tipo=TIPO[i],
+            nueva_gema = Gema.Gema(propietario=self.__nombre_jugador, tipo=TIPO[i],
                         ataque=round(random.uniform(0.6, 1.0) * 100, 2),
                         defensa=round(random.uniform(0.1, 0.5) * 100, 2))
-            self.gema_jugador.append(nueva_gema)
+            self.__gema_jugador.append(nueva_gema)
 
     def get_gema_jugador(self, cual_gema):
         """
@@ -36,11 +36,11 @@ class Jugador:
         """
         try:
             if cual_gema+1 == 1:
-                return self.gema_jugador[0]
+                return self.__gema_jugador[0]
             elif cual_gema+1 == 2:
-                return self.gema_jugador[1]
+                return self.__gema_jugador[1]
             elif cual_gema+1 == 3:
-                return self.gema_jugador[2]
+                return self.__gema_jugador[2]
             else:
                 # Handle the case when cualGema is not 1, 2, or 3
                 print("Número de gema no válido. Debe ser 1, 2 o 3.")
@@ -50,82 +50,65 @@ class Jugador:
             print("Índice de gema fuera de rango. El jugador no tiene esa gema.")
             return None
 
-
-    def set_vida_gema_jugador(self, cual_gema, vida):
-        """
-        Establece el valor de vida de una de las gemas del jugador por su número (1, 2 o 3).
-
-        Args:
-            cualGema (int): El número de la gema a la que se le cambiará la vida (1, 2 o 3).
-            vida (float): El nuevo valor de vida de la gema.
-        """
-        try:
-            if cual_gema+1 == 1:
-                self.gema_jugador[cual_gema].setVidaGema(vida)
-            elif cual_gema+1 == 2:
-                self.gema_jugador[cual_gema].setVidaGema(vida)
-            elif cual_gema+1 == 3:
-                self.gema_jugador[cual_gema].setVidaGema(vida)
-            else:
-                print("Número de gema no válido. Debe ser 1, 2 o 3.")
-                return None
-        except IndexError:
-            print("Índice de gema fuera de rango. El jugador no tiene esa gema.")
-            return None
-
-    def get_nombre_jugador(self):
+    @property
+    def nombre_jugador(self):
         """
         Obtiene el nombre del jugador.
 
         Returns:
             str: El nombre del jugador.
         """
-        return self.nombre_jugador
+        return self.__nombre_jugador
 
-    def set_nombre_jugador(self, nombre):
+    @nombre_jugador.setter
+    def nombre_jugador(self, nombre):
         """
         Establece el nombre del jugador.
 
         Args:
             nombre (str): El nuevo nombre del jugador.
         """
-        self.nombre_jugador = nombre
+        self.__nombre_jugador = nombre
 
-    def set_vida_jugador(self, vida):
-        """
-        Establece el estado de vida del jugador.
-
-        Args:
-            vida (bool): El estado de vida del jugador (True para vivo, False para no vivo).
-        """
-        self.vida_jugador = vida
-
-    def get_vida_jugador(self):
+    @property
+    def vida_jugador(self):
         """
         Obtiene el estado de vida del jugador.
 
         Returns:
             bool: True si el jugador está vivo, False si no lo está.
         """
-        return self.vida_jugador
+        return self.__vida_jugador
 
-    def set_oxigeno_jugador(self, oxigeno):
+    @vida_jugador.setter
+    def vida_jugador(self, vida):
         """
-        Establece el nivel de oxígeno del jugador.
+        Establece el estado de vida del jugador.
 
         Args:
-            oxigeno (float): El nuevo nivel de oxígeno del jugador.
+            vida (bool): El estado de vida del jugador (True para vivo, False para no vivo).
         """
-        self.oxigeno_jugador = oxigeno
+        self.__vida_jugador = vida
 
-    def get_oxigeno_jugador(self):
+    @property
+    def oxigeno_jugador(self):
         """
         Obtiene el nivel de oxígeno del jugador.
 
         Returns:
             float: El nivel de oxígeno del jugador.
         """
-        return self.oxigeno_jugador
+        return self.__oxigeno_jugador
+    
+    @oxigeno_jugador.setter
+    def oxigeno_jugador(self, oxigeno):
+        """
+        Establece el nivel de oxígeno del jugador.
+
+        Args:
+            oxigeno (float): El nuevo nivel de oxígeno del jugador.
+        """
+        self.__oxigeno_jugador = oxigeno
 
     def __str__(self):
         """
@@ -136,10 +119,10 @@ class Jugador:
             str: Una cadena que describe el jugador y sus gemas.
         """
         informacion = ""
-        informacion = "\n" + "Nombre del jugador: " + self.nombre_jugador + "\n"
-        informacion += "Oxigeno del jugador: " + str(self.oxigeno_jugador) + "%\n"
-        informacion += "Sigue vivo? " + ("Sí" if self.vida_jugador else "No") + "\n"
+        informacion = "\n" + "Nombre del jugador: " + self.__nombre_jugador + "\n"
+        informacion += "Oxigeno del jugador: " + str(self.__oxigeno_jugador) + "%\n"
+        informacion += "Sigue vivo? " + ("Sí" if self.__vida_jugador else "No") + "\n"
         informacion += "Gemas: \n"
         for i in range(3):
-            informacion += self.gema_jugador[i].__str__() + "\n"
+            informacion += self.__gema_jugador[i].__str__() + "\n"
         return informacion
