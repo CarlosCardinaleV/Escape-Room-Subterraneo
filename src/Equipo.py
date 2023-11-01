@@ -9,24 +9,25 @@ class Equipo:
         Args:
             nombre (str): El nombre del equipo (por defecto, "Equipo #").
         """
-        self.nombre_equipo = nombre
-        self.nombres_jugadores = [nombre_jugador_a, nombre_jugador_b, nombre_jugador_c]
+        self.__nombre_equipo = nombre
+        self.__nombres_jugadores = [nombre_jugador_a, nombre_jugador_b, nombre_jugador_c]
         #self.nombreJugadorA = nombreJugadorA
         #self.nombreJugadorB = nombreJugadorB
         #self.nombreJugadorC = nombreJugadorC
-        self.jugador_del_equipo = []
+        self.__jugador_del_equipo = []
         for i in range(3):
-            self.jugador_del_equipo.append(Jugador.Jugador(self.nombres_jugadores[i]))
-        self.equipo_vivo = True
+            self.__jugador_del_equipo.append(Jugador.Jugador(self.__nombres_jugadores[i]))
+        self.__equipo_vivo = True
 
-    def get_nombre_equipo(self):
+    @property
+    def nombre_equipo(self):
         """
         Obtiene el nombre del equipo.
 
         Returns:
             str: El nombre del equipo.
         """
-        return self.nombre_equipo
+        return self.__nombre_equipo
 
     def get_jugador_del_equipo(self, cual_jugador):
         """
@@ -52,16 +53,18 @@ class Equipo:
             print("Índice de gema fuera de rango. El jugador no tiene esa gema.")
             return None
 
-    def get_equipo_vivo(self):
+    @property
+    def equipo_vivo(self):
         """
         Comprueba si el equipo está vivo.
 
         Returns:
             bool: True si el equipo está vivo, False de lo contrario.
         """
-        return self.equipo_vivo
+        return self.__equipo_vivo
 
-    def set_nombre_equipo(self, equipo):
+    @nombre_equipo.setter
+    def nombre_equipo(self, nombre):
         """
         Establece el nombre del equipo.
 
@@ -71,7 +74,7 @@ class Equipo:
         Returns:
             None
         """
-        self.nombre_equipo = equipo
+        self.__nombre_equipo = nombre
 
     def set_jugador_equipo(self, jugador, cual_jugador):
         """
@@ -86,7 +89,8 @@ class Equipo:
         """
         self.jugadorEquipo[cual_jugador - 1] = jugador
 
-    def se_equipo_vivo(self, vivo):
+    @equipo_vivo.setter
+    def equipo_vivo(self, vivo):
         """
         Establece el estado de vida del equipo.
 
@@ -96,7 +100,7 @@ class Equipo:
         Returns:
             None
         """
-        self.equipo_vivo = vivo
+        self.__equipo_vivo = vivo
 
     def __str__(self):
         """
@@ -106,16 +110,19 @@ class Equipo:
         Returns:
             str: Una cadena que describe el equipo.
         """
-        informacion = "\n" + "Nombre del equipo: " + self.nombre_equipo + "\n"
-        cuantos_jugadores_vivos = sum(1 for jugador in self.jugador_del_equipo if jugador.get_vida_jugador())
+        informacion = "\n" + "Nombre del equipo: " + self.__nombre_equipo + "\n"
+        cuantos_jugadores_vivos = sum(1 for jugador in self.__jugador_del_equipo if jugador.vida_jugador)
         informacion += "Cuantos jugadores vivos: " + str(cuantos_jugadores_vivos) + "\n"
         informacion += "Jugadores:\n"
         #for i in range(3):
         #    informacion += self.jugadorDelEquipo[i].getNombreJugador() + "    \t"
         #informacion += "\n"
         for i in range(3):
-            informacion += "\t" + self.jugador_del_equipo[i].get_nombre_jugador() + ":\n"
+            informacion += "\t" + self.__jugador_del_equipo[i].nombre_jugador + ":\n"
             for j in range(3):
-                informacion += str(self.jugador_del_equipo[i].get_gema_jugador(j)) + "\n"
+                informacion += str(self.__jugador_del_equipo[i].get_gema_jugador(j)) + "\n"
             informacion += "\n"
         return informacion
+
+equipo = Equipo()
+print(equipo)
