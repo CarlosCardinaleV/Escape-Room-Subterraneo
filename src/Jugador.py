@@ -35,11 +35,11 @@ class Jugador:
             Gema: La gema seleccionada, o None si el número de gema no es válido.
         """
         try:
-            if cual_gema+1 == 1:
+            if cual_gema-1 == 0:
                 return self.__gema_jugador[0]
-            elif cual_gema+1 == 2:
+            elif cual_gema-1 == 1:
                 return self.__gema_jugador[1]
-            elif cual_gema+1 == 3:
+            elif cual_gema-1 == 2:
                 return self.__gema_jugador[2]
             else:
                 # Handle the case when cualGema is not 1, 2, or 3
