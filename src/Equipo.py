@@ -40,12 +40,12 @@ class Equipo:
             Jugador: El jugador seleccionado.
         """
         try:
-            if cual_jugador+1 == 1:
-                return self.jugadorEquipo[cual_jugador]
-            elif cual_jugador+1 == 2:
-                return self.jugadorEquipo[cual_jugador]
-            elif cual_jugador+1 == 3:
-                return self.jugadorEquipo[cual_jugador]
+            if cual_jugador-1 == 0:
+                return self.__jugador_del_equipo[cual_jugador]
+            elif cual_jugador-1 == 1:
+                return self.__jugador_del_equipo[cual_jugador]
+            elif cual_jugador-1 == 2:
+                return self.__jugador_del_equipo[cual_jugador]
             else:
                 print("Número de gema no válido. Debe ser 1, 2 o 3.")
                 return None
@@ -119,10 +119,7 @@ class Equipo:
         #informacion += "\n"
         for i in range(3):
             informacion += "\t" + self.__jugador_del_equipo[i].nombre_jugador + ":\n"
-            for j in range(3):
+            for j in range(1,4):
                 informacion += str(self.__jugador_del_equipo[i].get_gema_jugador(j)) + "\n"
             informacion += "\n"
         return informacion
-
-equipo = Equipo()
-print(equipo)
