@@ -13,7 +13,7 @@ class Caverna:
         self.cerrojo_caverna = [None] * 3
         self.oxigeno_caverna = [1.0] * 3
 
-        for i in range(3):
+        for i in range(1,3):
             self.cerrojo_caverna[i] = Cerrojo.Cerrojo(self.nombre_cerrojo[i])
 
     def set_oxigeno_jugador_caverna(self, jugador, oxigeno, cual_caverna):
@@ -77,11 +77,11 @@ class Caverna:
             Cerrojo: La cerradura seleccionada.
         """
         try:
-            if cual_cerrojo+1 == 1:
+            if cual_cerrojo-1 == 0:
                 return self.cerrojo_caverna[0]
-            elif cual_cerrojo+1 == 2:
+            elif cual_cerrojo-1 == 1:
                 return self.cerrojo_caverna[1]
-            elif cual_cerrojo+1 == 3:
+            elif cual_cerrojo-1 == 2:
                 return self.cerrojo_caverna[2]
             else:
                 return None
@@ -101,11 +101,11 @@ class Caverna:
             None
         """
         try:
-            if cual_cerrojo+1 == 1:
+            if cual_cerrojo-1 == 0:
                 self.cerrojo_caverna[0] = puerta
-            elif cual_cerrojo+1 == 2:
+            elif cual_cerrojo-1 == 1:
                 self.cerrojo_caverna[1] = puerta
-            elif cual_cerrojo+1 == 3:
+            elif cual_cerrojo-1 == 2:
                 self.cerrojo_caverna[2] = puerta
             else:
                 print("Índice de gema fuera de rango. La caverna no tiene esa gema.")
@@ -151,7 +151,7 @@ class Caverna:
             resumen += "--Caverna: " + self.cerrojo_caverna[i].get_nombre_cerrojo() + "--\t"
             resumen += "--Letalidad: " + str(self.letalidad_caverna[i]) + "--\t"
             resumen += "--Oxigeno: " + str(self.oxigeno_caverna[i]) + "--\n\n"
-            for j in range(3):
+            for j in range(1,3):
                 resumen += "\n" + str(self.cerrojo_caverna[i].get_gema_cerrojo(j))
             resumen += "\n"
         return resumen
