@@ -1,28 +1,28 @@
-# Escape Room Subterraneo (Work in progress)
+# Escape Room Subterráneo (Trabajo en progreso)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![Licencia: MIT](https://img.shields.io/badge/Licencia-MIT-amarillo.svg)](./LICENSE)
 
-The game **Escape Room Subterraneo** is a challenge where a team of three players will be tested for their ability to progress as far as possible in a tournament of strategy, survival, and escape. Each team member receives three magical gems, and together they must strive to escape their confinement by creating spells that are cast on the locks of the three exit doors, located in each of the three consecutive caverns.
+El juego **Escape Room Subterráneo** es un desafío en el que un equipo de tres jugadores será evaluado por su capacidad de avanzar lo más lejos posible en un torneo de estrategia, supervivencia y escape. Cada miembro del equipo recibe tres gemas mágicas y juntos deben esforzarse por escapar de su confinamiento creando hechizos que se lanzan sobre las cerraduras de las tres puertas de salida, ubicadas en cada una de las tres cavernas consecutivas.
 
-## Objective
+## Objetivo
 
-The main objective of the game is to open the exit doors in each cave, successfully escaping the underground depths. However, there are several challenges to face:
+El objetivo principal del juego es abrir las puertas de salida en cada cueva y escapar con éxito de las profundidades subterráneas. Sin embargo, hay varios desafíos a enfrentar:
 
-- The magical gems may lose their power over time, adding an element of urgency and strategy to the game.
-- There's a risk of a player dying if all of their gems completely lose their power.
-- Lack of oxygen in the cave can also lead to a player's demise.
+- Las gemas mágicas pueden perder su poder con el tiempo, lo que añade un elemento de urgencia y estrategia al juego.
+- Existe el riesgo de que un jugador muera si todas sus gemas pierden completamente su poder.
+- La falta de oxígeno en la cueva también puede llevar a la muerte de un jugador.
 
-## Rules
+## Reglas
 
-The rules of the game are explained as follows:
+Las reglas del juego se explican de la siguiente manera:
 
-1. Each team is composed of three players.
-2. Each player receives three magical gems at the beginning of the game.
-3. The goal is to open the exit doors in each of the three caverns by using spells.
-4. Spells are cast on the door locks to unlock them.
-5. The magical gems have limited power and can lose it over time.
-6. If a player's gems lose all their power, that player is at risk of dying.
-7. In addition to the gems, players must also monitor their oxygen supply within the cave.
-8. The team must work together, combining strategy and individual skills, to progress and escape.
+1. Cada equipo está compuesto por tres jugadores.
+2. Cada jugador recibe tres gemas mágicas al comienzo del juego.
+3. El objetivo es abrir las puertas de salida en cada una de las tres cavernas utilizando hechizos.
+4. Los hechizos se lanzan sobre las cerraduras de las puertas para desbloquearlas.
+5. Las gemas mágicas tienen un poder limitado y pueden perderlo con el tiempo.
+6. Si las gemas de un jugador pierden todo su poder, ese jugador corre el riesgo de morir.
+7. Además de las gemas, los jugadores también deben controlar su suministro de oxígeno dentro de la cueva.
+8. El equipo debe trabajar juntos, combinando estrategia y habilidades individuales, para avanzar y escapar.
 
-Get ready to explore the depths, craft spells, and escape in the **Escape Room Subterráneo**!
+¡Prepárate para explorar las profundidades, crear hechizos y escapar en el **Escape Room Subterráneo**!
