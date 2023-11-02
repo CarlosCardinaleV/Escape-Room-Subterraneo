@@ -15,7 +15,7 @@ class Cerrojo:
         self.gema_cerrojo = []
         tipo = [self.tipo_aleatorio(), self.tipo_aleatorio(), self.tipo_aleatorio()]
         for i in range(3):
-            nueva_gema = Gema.Gema(jugador=self.nombre_cerrojo, tipo=tipo[i],
+            nueva_gema = Gema.Gema(propietario=self.nombre_cerrojo, tipo=tipo[i],
                         ataque=round(random.uniform(0.6, 1.0) * 100, 2),
                         defensa=round(random.uniform(0.1, 0.5) * 100, 2))
             self.gema_cerrojo.append(nueva_gema)
@@ -111,11 +111,11 @@ class Cerrojo:
             None
         """
         try:
-            if cual_gema+1 == 1:
+            if cual_gema-1 == 0:
                 self.gema_cerrojo[0].set_vida_gema(vida)
-            elif cual_gema+1 == 2:
+            elif cual_gema-1 == 1:
                 self.gema_cerrojo[1].set_vida_gema(vida)
-            elif cual_gema+1 ==3:
+            elif cual_gema-1 ==2:
                 self.gema_cerrojo[2].set_vida_gema(vida)
             else:
                 print("Número de gema no válido. Debe ser 1, 2 o 3.")
@@ -135,11 +135,11 @@ class Cerrojo:
             Gema: La gema seleccionada.
         """
         try:
-            if cual_gema+1 == 1:
+            if cual_gema-1 == 0:
                 return self.gema_cerrojo[0]
-            elif cual_gema+1 == 2:
+            elif cual_gema-1 == 1:
                 return self.gema_cerrojo[1]
-            elif cual_gema+1 == 3:
+            elif cual_gema-1 == 2:
                 return self.gema_cerrojo[2]
             else:
                 print("Número de gema no válido. Debe ser 1, 2 o 3.")
