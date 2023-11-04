@@ -5,7 +5,7 @@ class Gema:
     La clase Gema representa una gema con atributos como tipo, jugador,
     vida, ataque y defensa.
     """
-    def __init__(self, tipo="no especificado", propietario="anonimo", ataque=0.0, defensa=0.0, vida=1.0):
+    def __init__(self, tipo="no especificado", propietario="anonimo", ataque=0.0, defensa=0.0, vida=100.0):
         """
         Inicializa una nueva instancia de la clase Gema.
 
@@ -32,7 +32,7 @@ class Gema:
         """
         informacion = ""
         informacion += "\tGema de: " + self.__propietario_gema + "\n"
-        informacion += "\tVida de la Gema: " + str(self.__vida_gema * 100.0) + "%\n"
+        informacion += "\tVida de la Gema: " + str(self.__vida_gema * 1.0) + "%\n"
         informacion += "\tAtaque: " + str(self.__ataque_gema) + "%\n"
         informacion += "\tDefensa: " + str(self.__defensa_gema) + "%\n"
         informacion += "\tEl tipo de Gema: " + self.__tipo_gema + "\n"
@@ -120,7 +120,7 @@ class Gema:
             vida (float): El valor de vida de la gema a establecer.
         """
         try:
-            if vida >= 0:
+            if vida >= 0 and vida <= 100:
                 self.__vida_gema = vida
             else:
                 self.__vida_gema = 0.0
