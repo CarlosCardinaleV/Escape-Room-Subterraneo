@@ -8,15 +8,14 @@ class Caverna:
         La caverna contiene tres cerraduras (cerrojos), cada una con su
         propio estado de oxígeno, letalidad y puertas.
         """
-        self.nombre_cerrojo = ["Cerrojo 1", "Cerrojo 2", "Cerrojo 3"]
-        self.letalidad_caverna = [0.2, 0.3, 0.4]
-        self.cerrojo_caverna = [None] * 3
-        self.oxigeno_caverna = [1.0] * 3
+        self.__nombre_cerrojo = ["Cerrojo 1", "Cerrojo 2", "Cerrojo 3"]
+        self.__letalidad_caverna = [0.2, 0.3, 0.4]
+        self.__oxigeno_caverna = [1.0] * 3
+        self.__cerrojo_caverna = [None] * 3
+        for i in range(3):
+            self.__cerrojo_caverna[i] = Cerrojo.Cerrojo(self.__nombre_cerrojo[i])
 
-        for i in range(1,3):
-            self.cerrojo_caverna[i] = Cerrojo.Cerrojo(self.nombre_cerrojo[i])
-
-    def set_oxigeno_jugador_caverna(self, jugador, oxigeno, cual_caverna):
+    def set_oxigeno_jugador_caverna(self, jugador, oxigeno, cual_cerrojo):
         """
         Establece el nivel de oxígeno para un jugador en una caverna específica.
 
@@ -29,12 +28,12 @@ class Caverna:
             None
         """
         try:
-            self.oxigeno_caverna[cual_caverna - 1] = oxigeno
-            jugador.set_oxigeno_jugador(self.oxigeno_caverna[cual_caverna - 1])
+            self.__oxigeno_caverna[cual_cerrojo - 1] = oxigeno
+            jugador.set_oxigeno_jugador(self.__oxigeno_caverna[cual_cerrojo - 1])
         except IndexError:
             print("Indice de caverna fuera de rango.")
 
-    def set_oxigeno_caverna(self, cual_caverna, oxigeno):
+    def set_oxigeno_caverna(self, cual_cerrojo, oxigeno):
         """
         Reduce el nivel de oxígeno en una caverna específica.
 
@@ -46,12 +45,12 @@ class Caverna:
             None
         """
         try:
-            self.oxigeno_caverna[cual_caverna - 1] -= oxigeno
+            self.__oxigeno_caverna[cual_cerrojo - 1] -= oxigeno
         except IndexError:
-            print("Indice de caverna fuera de rango.")
+            print("Indice de cerrojo fuera de rango.")
 
 
-    def get_oxigeno_caverna(self, cual_caverna):
+    def get_oxigeno_caverna(self, cual_cerrojo):
         """
         Obtiene el nivel de oxígeno en una caverna específica.
 
@@ -62,9 +61,10 @@ class Caverna:
             float: El nivel de oxígeno en la caverna.
         """
         try:
-            return self.oxigeno_caverna[cual_caverna - 1]
+            return self.__oxigeno_caverna[cual_cerrojo - 1]
         except IndexError:
-            print("Indice de caverna fuera de rango.")
+            print("Indice de cerrojo fuera de rango.")
+            return None
 
     def get_cerrojo_caverna(self, cual_cerrojo):
         """
@@ -78,15 +78,16 @@ class Caverna:
         """
         try:
             if cual_cerrojo-1 == 0:
-                return self.cerrojo_caverna[0]
+                return self.__cerrojo_caverna[0]
             elif cual_cerrojo-1 == 1:
-                return self.cerrojo_caverna[1]
+                return self.__cerrojo_caverna[1]
             elif cual_cerrojo-1 == 2:
-                return self.cerrojo_caverna[2]
+                return self.__cerrojo_caverna[2]
             else:
+                print("Indice de cerrojo fuera de rango")
                 return None
         except IndexError:
-            print("Índice de gema fuera de rango. La caverna no tiene esa gema.")
+            print("Indice de cerrojo no existe.")
             return None
 
     def set_cerrojo_caverna(self, puerta, cual_cerrojo):
@@ -102,19 +103,19 @@ class Caverna:
         """
         try:
             if cual_cerrojo-1 == 0:
-                self.cerrojo_caverna[0] = puerta
+                self.__cerrojo_caverna[0] = puerta
             elif cual_cerrojo-1 == 1:
-                self.cerrojo_caverna[1] = puerta
+                self.__cerrojo_caverna[1] = puerta
             elif cual_cerrojo-1 == 2:
-                self.cerrojo_caverna[2] = puerta
+                self.__cerrojo_caverna[2] = puerta
             else:
-                print("Índice de gema fuera de rango. La caverna no tiene esa gema.")
+                print("Indice de cerrojo fuera de rango.")
                 return None
         except IndexError:
-            print("Índice de gema fuera de rango. La caverna no tiene esa gema.")
+            print("Indice de cerrojo no existe.")
             return None
 
-    def set_letalidad_caverna(self, letalidad, cual_caverna):
+    def set_letalidad_caverna(self, letalidad, cual_cerrojo):
         """
         Establece el nivel de letalidad en una caverna específica.
 
@@ -125,9 +126,9 @@ class Caverna:
         Returns:
             None
         """
-        self.letalidad_caverna[cual_caverna - 1] = letalidad
+        self.__letalidad_caverna[cual_cerrojo - 1] = letalidad
 
-    def get_letalidad_caverna(self, cual_caverna):
+    def get_letalidad_caverna(self, cual_cerrojo):
         """
         Obtiene el nivel de letalidad en una caverna específica.
 
@@ -137,7 +138,7 @@ class Caverna:
         Returns:
             float: El nivel de letalidad en la caverna.
         """
-        return self.letalidad_caverna[cual_caverna - 1]
+        return self.__letalidad_caverna[cual_cerrojo - 1]
 
     def __str__(self):
         """
@@ -148,10 +149,10 @@ class Caverna:
         """
         resumen = ""
         for i in range(3):
-            resumen += "--Caverna: " + self.cerrojo_caverna[i].get_nombre_cerrojo() + "--\t"
-            resumen += "--Letalidad: " + str(self.letalidad_caverna[i]) + "--\t"
-            resumen += "--Oxigeno: " + str(self.oxigeno_caverna[i]) + "--\n\n"
-            for j in range(1,3):
-                resumen += "\n" + str(self.cerrojo_caverna[i].get_gema_cerrojo(j))
+            resumen += "--Caverna: " + self.__cerrojo_caverna[i].nombre_cerrojo + "--\t"
+            resumen += "--Letalidad: " + str(self.__letalidad_caverna[i]) + "--\t"
+            resumen += "--Oxigeno: " + str(self.__oxigeno_caverna[i]) + "--\n\n"
+            for j in range(1,4):
+                resumen += "\n" + str(self.__cerrojo_caverna[i].get_gema_cerrojo(j))
             resumen += "\n"
         return resumen
