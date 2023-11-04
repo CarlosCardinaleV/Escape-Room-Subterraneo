@@ -9,16 +9,40 @@ class Cerrojo:
         Args:
             nombre (str): El nombre del cerrojo (por defecto, "Cerrojo #").
         """
-        self.abierto = False
-        self.nombre_cerrojo = nombre
-        self.vida_cerrojo = 1.0 * 100
-        self.gema_cerrojo = []
+        self.__abierto_cerrojo = False
+        self.__nombre_cerrojo = nombre
+        self.__vida_cerrojo = 1.0 * 100
+        self.__gema_cerrojo = []
         tipo = [self.tipo_aleatorio(), self.tipo_aleatorio(), self.tipo_aleatorio()]
         for i in range(3):
-            nueva_gema = Gema.Gema(propietario=self.nombre_cerrojo, tipo=tipo[i],
+            nueva_gema = Gema.Gema(propietario=self.__nombre_cerrojo, tipo=tipo[i],
                         ataque=round(random.uniform(0.6, 1.0) * 100, 2),
                         defensa=round(random.uniform(0.1, 0.5) * 100, 2))
-            self.gema_cerrojo.append(nueva_gema)
+            self.__gema_cerrojo.append(nueva_gema)
+
+    @property
+    def abierto_cerrojo(self):
+        """
+        Obtiene respuesta si el cerrojo esta abierto o cerrado.
+
+        Returns:
+            bool: True si el cerrojo está abierto, False de lo contrario.
+        """
+        return self.__abierto_cerrojo
+    
+    @abierto_cerrojo.setter
+    def abierto_cerrojo(self, abierto):
+        """
+        Establece si el cerrojo esta abierto o cerrado.
+
+        Args:
+            abierto (bool): True si el cerrojo está abierto, False de lo contrario.
+
+        Returns:
+            None
+        """
+        self.__abierto_cerrojo = abierto
+
 
     def tipo_aleatorio(self):
         """
@@ -36,7 +60,18 @@ class Cerrojo:
         else:
             return "METAL"
 
-    def set_vida(self, vida):
+    @property
+    def vida_cerrojo(self):
+        """
+        Obtiene el estado de vida del cerrojo.
+
+        Returns:
+            bool: True si el cerrojo está vivo, False de lo contrario.
+        """
+        return self.__vida_cerrojo
+
+    @vida_cerrojo.setter
+    def vida_cerrojo(self, vida):
         """
         Establece el estado de vida del cerrojo.
 
@@ -46,83 +81,17 @@ class Cerrojo:
         Returns:
             None
         """
-        self.vida = vida
+        self.__vida_cerrojo = vida
 
-    def get_vida(self):
-        """
-        Obtiene el estado de vida del cerrojo.
-
-        Returns:
-            bool: True si el cerrojo está vivo, False de lo contrario.
-        """
-        return self.vida
-
-    def set_nombre_cerrojo(self, puerta):
-        """
-        Establece el nombre del cerrojo.
-
-        Args:
-            puerta (str): El nombre del cerrojo.
-
-        Returns:
-            None
-        """
-        self.nombre_cerrojo = puerta
-
-    def get_nombre_cerrojo(self):
+    @property
+    def nombre_cerrojo(self):
         """
         Obtiene el nombre del cerrojo.
 
         Returns:
             str: El nombre del cerrojo.
         """
-        return self.nombre_cerrojo
-
-    def set_vida_cerrojo(self, vida):
-        """
-        Establece el nivel de vida del cerrojo.
-
-        Args:
-            vida (float): El nivel de vida del cerrojo (un número entre 0 y 1).
-
-        Returns:
-            None
-        """
-        self.vida_cerrojo = vida
-
-    def get_vida_cerrojo(self):
-        """
-        Obtiene el nivel de vida del cerrojo.
-
-        Returns:
-            float: El nivel de vida del cerrojo (un número entre 0 y 1).
-        """
-        return self.vida_cerrojo
-
-    def set_vida_gema_cerrojo(self, cual_gema, vida):
-        """
-        Establece el nivel de vida de una gema en el cerrojo.
-
-        Args:
-            cualGema (int): El número de la gema deseada (1, 2 o 3).
-            vida (float): El nivel de vida de la gema (un número entre 0 y 1).
-
-        Returns:
-            None
-        """
-        try:
-            if cual_gema-1 == 0:
-                self.gema_cerrojo[0].set_vida_gema(vida)
-            elif cual_gema-1 == 1:
-                self.gema_cerrojo[1].set_vida_gema(vida)
-            elif cual_gema-1 ==2:
-                self.gema_cerrojo[2].set_vida_gema(vida)
-            else:
-                print("Número de gema no válido. Debe ser 1, 2 o 3.")
-                return None
-        except IndexError:
-            print("Indice de gema fuera de rango. El jugador no tiene esa gema.")
-            return None
+        return self.__nombre_cerrojo
 
     def get_gema_cerrojo(self, cual_gema):
         """
@@ -136,11 +105,11 @@ class Cerrojo:
         """
         try:
             if cual_gema-1 == 0:
-                return self.gema_cerrojo[0]
+                return self.__gema_cerrojo[0]
             elif cual_gema-1 == 1:
-                return self.gema_cerrojo[1]
+                return self.__gema_cerrojo[1]
             elif cual_gema-1 == 2:
-                return self.gema_cerrojo[2]
+                return self.__gema_cerrojo[2]
             else:
                 print("Número de gema no válido. Debe ser 1, 2 o 3.")
                 return None
@@ -156,10 +125,10 @@ class Cerrojo:
         Returns:
             str: Una cadena que describe el cerrojo.
         """
-        informacion = "Cerrojo: " + self.nombre_cerrojo + "\n"
-        informacion += "Esta abierto el cerrojo? " + ("Si\n" if self.abierto else "No\n")
-        informacion += "Porcentaje de vida del cerrojo: " + str(self.vida_cerrojo) + "\n"
+        informacion = "Cerrojo: " + self.__nombre_cerrojo + "\n"
+        informacion += "Esta abierto el cerrojo? " + ("Si\n" if self.__abierto_cerrojo else "No\n")
+        informacion += "Porcentaje de vida del cerrojo: " + str(self.__vida_cerrojo) + "\n"
         informacion += "Gemas: \n"
         for i in range(3):
-            informacion += self.gema_cerrojo[i].__str__() + "\n"
+            informacion += self.__gema_cerrojo[i].__str__() + "\n"
         return informacion
