@@ -39,7 +39,7 @@ class Gema:
         return informacion
 
     def __str__gema(self):
-        return f"{self.__tipo_gema}:{self.__vida_gema * 100.0}%"
+        return f"{self.__tipo_gema}:{self.__vida_gema * 1.0}%"
 
     @property
     def tipo_gema(self):
