@@ -114,7 +114,7 @@ class Cerrojo:
                 print("Número de gema no válido. Debe ser 1, 2 o 3.")
                 return None
         except IndexError:
-            print("Indice de gema fuera de rango. El jugador no tiene esa gema.")
+            print("Indice de gema fuera de rango. El cerrojo no tiene esa gema.")
             return None
 
     def __str__(self):
