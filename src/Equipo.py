@@ -41,16 +41,16 @@ class Equipo:
         """
         try:
             if cual_jugador-1 == 0:
-                return self.__jugador_del_equipo[cual_jugador]
+                return self.__jugador_del_equipo[0]
             elif cual_jugador-1 == 1:
-                return self.__jugador_del_equipo[cual_jugador]
+                return self.__jugador_del_equipo[1]
             elif cual_jugador-1 == 2:
-                return self.__jugador_del_equipo[cual_jugador]
+                return self.__jugador_del_equipo[2]
             else:
-                print("Número de gema no válido. Debe ser 1, 2 o 3.")
+                print("Número de jugador no válido. Debe ser 1, 2 o 3.")
                 return None
         except IndexError:
-            print("Índice de gema fuera de rango. El jugador no tiene esa gema.")
+            print("Índice de jugador fuera de rango. El equipo no tiene ese jugador.")
             return None
 
     @property
