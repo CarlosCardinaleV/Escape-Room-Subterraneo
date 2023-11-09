@@ -86,7 +86,13 @@ class Juego:
         return eleccion
 
     def destruir_cerrojo(self):
-         return None
+        """
+        Nivel donde se destruye el cerrojo de la caverna
+
+        Returns:
+        None
+        """
+        return None
 
 juego = Juego()
 juego.correr()
