@@ -1,7 +1,5 @@
 # Escape Room Subterráneo (Trabajo en progreso)
 
-[![Licencia: MIT](https://img.shields.io/badge/Licencia-MIT-amarillo.svg)](./LICENSE)
-
 ## Índice
 - [Escape Room Subterráneo (Trabajo en progreso)](#escape-room-subterráneo-trabajo-en-progreso)
   - [Índice](#índice)
@@ -55,4 +53,4 @@ Sigue estos pasos para sumergirte en la experiencia del Escape Room Subterráneo
 
 ## Licencia
 
-Este proyecto está bajo la [Licencia MIT](./LICENSE). ¡Diviértete jugando!
+Este proyecto está bajo la [![Licencia: MIT](https://img.shields.io/badge/Licencia-MIT-amarillo.svg)](./LICENSE). ¡Diviértete jugando!
