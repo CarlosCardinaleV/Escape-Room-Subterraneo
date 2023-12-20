@@ -4,12 +4,13 @@ import Hechizo
 
 class Juego:
     def __init__(self):
-        self.equipo = []
-        self.caverna = []
-        self.jugador = []
+        self.equipo = None
+        self.caverna = None
+        self.jugador = None
         self.hechizo = None
         self.mejor_posicion = 0
         self.segundos_hechizo = 0
+
 
     def correr(self):
         cantidad_equipos = int(input("Cuantos Equipos participan en el torneo de SCAPE ROOM SUBTERRANEO? "))
