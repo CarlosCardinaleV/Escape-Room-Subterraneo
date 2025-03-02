@@ -5,114 +5,105 @@ class Gema:
     La clase Gema representa una gema con atributos como tipo, jugador,
     vida, ataque y defensa.
     """
-    def __init__(self, tipo="no especificado", propietario="anonimo", ataque=0.0, defensa=0.0, vida=100.0):
+    def __init__(self, tipo: str="no especificado", propietario: str = "player#", \
+                 ataque: float = 0.0, defensa: float = 0.0, vida: float = 100.0):
         """
         Inicializa una nueva instancia de la clase Gema.
-
         Args:
-            tipo (str): El tipo de la gema.
-            jugador (str): El nombre del jugador propietario de la gema.
-            ataque (float): El valor de ataque de la gema.
-            defensa (float): El valor de defensa de la gema.
-            vida (float): El valor de vida de la gema.
+            _tipo (str): El tipo de la gema.
+            _jugador (str): El nombre del jugador propietario de la gema.
+            _ataque (float): El valor de ataque de la gema.
+            _defensa (float): El valor de defensa de la gema.
+            _vida (float): El valor de vida de la gema.
         """
-        self.__tipo_gema = tipo
-        self.__propietario_gema = propietario
-        self.__vida_gema = vida
-        self.__ataque_gema = ataque
-        self.__defensa_gema = defensa
+        self._tipo = tipo
+        self._propietario = propietario
+        self._vida = vida
+        self._ataque = ataque
+        self._defensa = defensa
 
-    def __str__(self):
+    def __str__(self) -> str:
         """
         Devuelve una representación de cadena de la gema, incluyendo información sobre
         el jugador, vida, ataque, defensa y tipo de gema.
-
         Returns:
             str: Una cadena que describe la gema.
         """
-        informacion = ""
-        informacion += "\tGema de: " + self.__propietario_gema + "\n"
-        informacion += "\tVida de la Gema: " + str(self.__vida_gema * 1.0) + "%\n"
-        informacion += "\tAtaque: " + str(self.__ataque_gema) + "%\n"
-        informacion += "\tDefensa: " + str(self.__defensa_gema) + "%\n"
-        informacion += "\tEl tipo de Gema: " + self.__tipo_gema + "\n"
-        return informacion
+        return f"\t Gema de: {self._propietario} \n \
+        Vida: {self._vida}% \n \
+        Ataque: {self._ataque} \n \
+        Defensa: {self._defensa} \n \
+        Tipo: {self._tipo}"
 
-    def __str__gema(self):
-        return f"{self.__tipo_gema}:{self.__vida_gema * 1.0}%"
+    def __str__gema(self) -> str:
+        return f"{self._tipo}: {self._vida}%"
 
     @property
-    def tipo_gema(self):
+    def tipo(self) -> str:
         """
         Obtiene el tipo de la gema.
-
         Returns:
             str: El tipo de la gema.
         """
-        return self.__tipo_gema
+        return self._tipo
 
     @property
-    def propietario_gema(self):
+    def propietario(self) -> str:
         """
         Obtiene el nombre del jugador propietario de la gema.
-
         Returns:
             str: El nombre del jugador propietario de la gema.
         """
-        return self.__propietario_gema
+        return self._propietario
 
     @property
-    def vida_gema(self):
+    def vida(self) -> float:
         """
         Obtiene el valor de vida de la gema.
-
         Returns:
             float: El valor de vida de la gema.
         """
-        return self.__vida_gema
+        return self._vida
 
     @property
-    def ataque_gema(self):
+    def ataque(self) -> float:
         """
         Obtiene el valor de ataque de la gema.
-
         Returns:
             float: El valor de ataque de la gema.
         """
-        return self.__ataque_gema
+        return self._ataque
 
     @property
-    def defensa_gema(self):
+    def defensa(self) -> float:
         """
         Obtiene el valor de defensa de la gema.
-
         Returns:
             float: El valor de defensa de la gema.
         """
-        return self.__defensa_gema
+        return self._defensa
 
-    @tipo_gema.setter
-    def tipo_gema(self, tipo):
+    @tipo.setter
+    def tipo(self, nuevo_tipo: str) -> None:
         """
         Establece el tipo de la gema.
-
         Args:
             tipo (str): El tipo de la gema a establecer.
         """
-        self.__tipo_gema = tipo
+        self._tipo = nuevo_tipo
 
-    @propietario_gema.setter
-    def propietario_gema(self, jugador):
+    @propietario.setter
+    def propietario(self, nuevo_propietario: str) -> None:
         """
         Establece el nombre del jugador propietario de la gema.
 
         Args:
             jugador (str): El nombre del jugador propietario de la gema.
         """
-        self.__propietario_gema = jugador
+        self._propietario = nuevo_propietario
 
-    @vida_gema.setter
-    def vida_gema(self, vida):
+    @vida.setter
+    def vida(self, nueva_vida: str) -> None:
         """
         Establece el valor de vida de la gema, asegurándose de que no sea un valor negativo.
 
@@ -120,29 +111,30 @@ class Gema:
             vida (float): El valor de vida de la gema a establecer.
         """
         try:
-            if vida >= 0 and vida <= 100:
-                self.__vida_gema = vida
+            if nueva_vida >= 0 and nueva_vida <= 100:
+                self._vida = nueva_vida
             else:
-                self.__vida_gema = 0.0
+                self._vida = 0.0
         except ValueError:
             raise ValueError("El valor de vida tiene que ser un numero.")
 
-    @ataque_gema.setter
-    def ataque_gema(self, ataque):
+    @ataque.setter
+    def ataque(self, nuevo_ataque: float) -> None:
         """
         Establece el valor de ataque de la gema.
 
         Args:
             ataque (float): El valor de ataque de la gema a establecer.
         """
-        self.__ataque_gema = ataque
+        self._ataque = nuevo_ataque
 
-    @defensa_gema.setter
-    def defensa_gema(self, defensa):
+    @defensa.setter
+    def defensa(self, nueva_defensa: float) -> None:
         """
         Establece el valor de defensa de la gema.
 
         Args:
             defensa (float): El valor de defensa de la gema a establecer.
         """
-        self.__defensa_gema = defensa
+        self._defensa = nueva_defensa
+
