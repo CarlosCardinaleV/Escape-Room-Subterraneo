@@ -14,6 +14,7 @@ class Player:
     gems: List[Gem] = field(default_factory=list)
     oxygen: float = 1.0
     alive: bool = True
+    health: float = 1.0
 
     def __post_init__(self):
         # If gems were not manually provided, create three default gems
