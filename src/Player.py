@@ -112,10 +112,10 @@ class Player:
 
 
 
-player1 = Player.with_name("Carlos")
+# player1 = Player.with_name("Carlos")
 
-print(player1.short_status())
-player1.set_gem_health(1, 0.7)
-player1.set_gem_health(2, 0.9)
-print('-'*80)
-print(player1)
+# print(player1.short_status())
+# player1.set_gem_health(1, 0.7)
+# player1.set_gem_health(2, 0.9)
+# print('-'*80)
+# print(player1)

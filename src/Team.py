@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
 from typing import List
+from Player import Player
 
 
 @dataclass
