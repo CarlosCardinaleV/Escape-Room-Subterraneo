@@ -10,10 +10,8 @@ class Spell:
     _seconds: float = field(init=False, default=1.0)
     _spell_count: int = field(init=False, default=0)
 
-    # -------------------------
-    # Spell counter
-    # -------------------------
 
+    # Spell counter
     def increase_spell_count(self, amount: int = 1) -> None:
         """
         Increases the number of spells used.
@@ -28,10 +26,7 @@ class Spell:
         """
         return self._spell_count
 
-    # -------------------------
     # Spell duration
-    # -------------------------
-
     @property
     def duration(self) -> float:
         """
@@ -47,10 +42,7 @@ class Spell:
         """
         self._seconds = value if value >= 1.0 else 1.0
 
-    # -------------------------
     # Combat logic
-    # -------------------------
-
     def resolve_gem_combat(
         self,
         player,
