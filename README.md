@@ -1,56 +1,74 @@
-# Escape Room Subterráneo (Trabajo en progreso)
+# Underground Escape Room (Work in Progress)
 
-## Índice
-- [Escape Room Subterráneo (Trabajo en progreso)](#escape-room-subterráneo-trabajo-en-progreso)
-  - [Índice](#índice)
-  - [Descripción](#descripción)
-  - [Objetivo](#objetivo)
-  - [Reglas del juego](#reglas-del-juego)
-  - [Preparativos](#preparativos)
-  - [¡A jugar!](#a-jugar)
-  - [Licencia](#licencia)
+## Table of Contents
+- [Description](#description)
+- [Objective](#objective)
+- [Core Mechanics](#core-mechanics)
+- [Gameplay Rules](#gameplay-rules)
+- [Setup & Preparation](#setup--preparation)
+- [How to Play](#how-to-play)
+- [License](#license)
 
-## Descripción
+---
 
-El juego **Escape Room Subterráneo** es un desafío fascinante en el que un equipo de tres jugadores será evaluado por su capacidad para avanzar lo más lejos posible en un torneo de estrategia, supervivencia y escape. Cada miembro del equipo recibe tres gemas mágicas y, juntos, deben esforzarse por escapar de su confinamiento creando hechizos que se lanzan sobre las cerraduras de las tres puertas de salida, ubicadas en cada una de las tres cavernas consecutivas.
+## Description
 
-## Objetivo
+**Underground Escape Room** is a strategic survival challenge designed for a three-player team. Players are tested on their ability to navigate a series of underground caverns by crafting spells to unlock reinforced doors. 
 
-El objetivo principal del juego es abrir las puertas de salida en cada cueva y escapar con éxito de las profundidades subterráneas. Sin embargo, este desafío no es tan simple como parece, ya que varios obstáculos pondrán a prueba la astucia y cooperación de tu equipo:
+Each team member begins with three magical gems. Together, you must manage your resources, maintain your health, and solve the mysteries of the deep to reach the surface.
 
-- Las gemas mágicas pueden perder su poder con el tiempo, añadiendo un elemento de urgencia y estrategia al juego.
-- Existe el riesgo de que un jugador muera si todas sus gemas pierden completamente su poder.
-- La falta de oxígeno en la cueva también puede llevar a la muerte de un jugador.
+## Objective
 
-## Reglas del juego
+The primary goal is to unlock the exit doors of three consecutive caverns and escape the underground depths. Success requires more than just speed; you must overcome several critical threats:
 
-Las reglas del juego se explican de manera clara y concisa para facilitar la comprensión y preparar a los jugadores para el desafío subterráneo:
+* **Gem Decay:** Magical gems lose power over time, requiring constant strategic management.
+* **Player Vitality:** If a player's gems lose all power, they risk death.
+* **Oxygen Depletion:** Limited air supply adds a layer of urgency to every decision.
 
-1. Cada equipo está compuesto por tres jugadores.
-2. Al inicio del juego, cada jugador recibe tres gemas mágicas.
-3. El objetivo es abrir las puertas de salida en cada una de las tres cavernas utilizando hechizos.
-4. Los hechizos se lanzan sobre las cerraduras de las puertas para desbloquearlas.
-5. Las gemas mágicas tienen un poder limitado y pueden perderlo con el tiempo.
-6. Si las gemas de un jugador pierden todo su poder, ese jugador corre el riesgo de morir.
-7. Además de gestionar las gemas, los jugadores deben controlar su suministro de oxígeno dentro de la cueva.
-8. El equipo debe trabajar de manera colaborativa, combinando estrategia y habilidades individuales para avanzar y escapar.
+---
 
-## Preparativos
+## Core Mechanics
 
-Antes de comenzar el juego, asegúrate de tener todo listo:
+| Feature | Description |
+| :--- | :--- |
+| **Magical Gems** | Each player starts with 3 gems used to fuel spells. |
+| **Spellcasting** | Players combine gem energy to cast spells on door locks. |
+| **Oxygen Levels** | A shared or individual resource that limits time per cavern. |
+| **Permadeath** | If a player loses all gem power or oxygen, they are eliminated. |
 
-- [Requisitos del equipo](#requisitos-del-equipo)
-- [Configuración del juego](#configuración-del-juego)
+---
 
-## ¡A jugar!
+## Gameplay Rules
 
-Sigue estos pasos para sumergirte en la experiencia del Escape Room Subterráneo:
+1.  **Team Composition:** The game is balanced for exactly three players.
+2.  **Initial Resources:** Every player is granted three magical gems at the start.
+3.  **Progression:** There are three distinct caverns; each has a locked exit that requires a specific spell to open.
+4.  **Resource Management:** Gems are a finite resource. Using them or simply letting time pass will reduce their potency.
+5.  **Survival Conditions:** Players must balance the use of gems for spells against the energy needed to stay alive.
+6.  **Collaboration:** Success is impossible alone. Players must synchronize their spellcasting and share resources to ensure the whole team escapes.
 
-1. [Reunión del equipo](#reunión-del-equipo)
-2. [Lanzamiento de hechizos](#lanzamiento-de-hechizos)
-3. [Gestión de oxígeno](#gestión-de-oxígeno)
-4. [Trabajo en equipo](#trabajo-en-equipo)
+---
 
-## Licencia
+## Setup & Preparation
 
-Este proyecto está bajo la [![Licencia: MIT](https://img.shields.io/badge/Licencia-MIT-amarillo.svg)](./LICENSE). ¡Diviértete jugando!
+Before descending into the caves, ensure your environment is ready:
+
+* **[System Requirements](#system-requirements):** (Link to your technical specs here).
+* **[Game Configuration](#game-configuration):** Adjust difficulty settings and player inputs.
+
+## How to Play
+
+1.  **Form Your Team:** Gather three players and assign roles if necessary.
+2.  **Cast Spells:** Interact with the door locks and select the appropriate gem combinations.
+3.  **Monitor Vitals:** Keep a constant eye on your oxygen bar and gem integrity.
+4.  **Communicate:** Coordinate with your team to decide who uses their gems and when.
+
+---
+
+## License
+
+This project is licensed under the **MIT License**. See the [LICENSE](./LICENSE) file for details.
+
+---
+
+*Enjoy the challenge!*
