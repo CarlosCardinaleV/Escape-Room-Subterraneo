@@ -26,7 +26,7 @@ class Player:
     @classmethod
     def with_name(cls, name: str):
         """Creates a player with a specific name."""
-        return cls(name=name)
+        return cls(_name=name)
 
     # Gem access methods
     def get_gem(self, index: int) -> Gem:
@@ -87,7 +87,7 @@ class Player:
         info = (
             f"\nPlayer Name: {self._name}\n"
             f"Oxygen Level: {self._oxygen}\n"
-            f"ALife status: {'alive' if self._alive else 'dead'}\n"
+            f"Life status: {'alive' if self._alive else 'dead'}\n"
             f"Gems:\n"
         )
         for gem in self._gems:
@@ -99,7 +99,7 @@ class Player:
         info = (
             f"\nPlayer Name: {self._name}\t"
             f"Life status: {'alive' if self._alive else 'dead'}\n"
-            f"Gems:\t"
+            f"Gems ->"
         )
         for gem in self._gems:
             info += f"  {gem.summary()}\t"
@@ -113,13 +113,3 @@ class Player:
         print("Gems:")
         for gem in self._gems:
             print(gem)
-
-
-
-player1 = Player.with_name("Carlos")
-
-print(player1.short_status())
-player1.set_gem_health(1, 0.7)
-player1.set_gem_health(2, 0.9)
-print('-'*80)
-print(player1)
