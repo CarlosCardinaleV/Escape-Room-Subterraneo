@@ -9,32 +9,26 @@ class Player:
     The Player class creates three gems (FIRE, WATER, METAL)
     and assigns the player name to each one.
     """
-
-    name: str = "Player #"
-    gems: List[Gem] = field(default_factory=list)
-    oxygen: float = 1.0
-    alive: bool = True
-    health: float = 1.0
+    _name: str = field(default="Player #")
+    _gems: List[Gem] = field(default_factory=list)
+    _oxygen: float = 1.0
+    _alive: bool = True
 
     def __post_init__(self):
         # If gems were not manually provided, create three default gems
-        if not self.gems:
+        if not self._gems:
             gem_types = ["FIRE", "WATER", "METAL"]
-            self.gems = [
-                Gem.for_player(self.name, gem_type)
+            self._gems = [
+                Gem.for_player(self._name, gem_type)
                 for gem_type in gem_types
             ]
 
-    # -------------------------------------------------------------
-    # Alternative constructor (equivalent to Java constructor w/ name)
-    # -------------------------------------------------------------
     @classmethod
     def with_name(cls, name: str):
+        """Creates a player with a specific name."""
         return cls(name=name)
 
-    # -------------------------------------------------------------
-    # Gem access methods (replicating Java behavior)
-    # -------------------------------------------------------------
+    # Gem access methods
     def get_gem(self, index: int) -> Gem:
         """
         Returns the selected gem:
@@ -43,10 +37,10 @@ class Player:
         3 = METAL (default for any other integer)
         """
         if index == 1:
-            return self.gems[0]
+            return self._gems[0]
         elif index == 2:
-            return self.gems[1]
-        return self.gems[2]
+            return self._gems[1]
+        return self._gems[2]
 
     def set_gem_health(self, index: int, health: float):
         """
@@ -54,68 +48,78 @@ class Player:
         Used by the Spell class in the original Java project.
         """
         gem = self.get_gem(index)
-        gem.health = health
+        gem._health = health
 
-    # -------------------------------------------------------------
-    # Properties for name, oxygen, alive (clean Python style)
-    # -------------------------------------------------------------
+    # Properties for name, oxygen, alive
+    @property
+    def name(self) -> str:
+        """Returns the name of the player."""
+        return self._name
+
+    @name.setter
+    def name(self, value: str):
+        """Sets the name of the player."""
+        self._name = value
+
     @property
     def is_alive(self) -> bool:
-        return self.alive
-
+        """Returns whether the player is alive."""
+        return self._alive
+    
     @is_alive.setter
     def is_alive(self, value: bool):
-        self.alive = value
-
+        """Sets the alive status of the player."""
+        self._alive = value
+    
     @property
     def oxygen_level(self) -> float:
-        return self.oxygen
-
+        """Returns the oxygen level of the player."""
+        return self._oxygen
+    
     @oxygen_level.setter
     def oxygen_level(self, value: float):
-        self.oxygen = value
+        """Sets the oxygen level of the player."""
+        self._oxygen = value
 
-    # -------------------------------------------------------------
-    # String representations (equivalent to Java toString methods)
-    # -------------------------------------------------------------
+    # String representations
     def __str__(self):
         """Full player information, used at the end of the game."""
         info = (
-            f"\nPlayer Name: {self.name}\n"
-            f"Oxygen Level: {self.oxygen}\n"
-            f"Alive? {self.alive}\n"
+            f"\nPlayer Name: {self._name}\n"
+            f"Oxygen Level: {self._oxygen}\n"
+            f"ALife status: {'alive' if self._alive else 'dead'}\n"
             f"Gems:\n"
         )
-        for gem in self.gems:
+        for gem in self._gems:
             info += str(gem) + "\n"
         return info
 
     def short_status(self):
         """Simplified info shown during gameplay."""
         info = (
-            f"\nPlayer Name: {self.name}\t"
-            f"Alive? {self.alive}\n"
+            f"\nPlayer Name: {self._name}\t"
+            f"Life status: {'alive' if self._alive else 'dead'}\n"
             f"Gems:\t"
         )
-        for gem in self.gems:
+        for gem in self._gems:
             info += f"  {gem.summary()}\t"
         return info
 
     def display(self):
         """Prints all player information."""
-        print(f"Player Name: {self.name}")
-        print(f"Oxygen: {self.oxygen}")
-        print(f"Alive? {self.alive}")
+        print(f"Player Name: {self._name}")
+        print(f"Oxygen: {self._oxygen}")
+        print(f"Life status: {'alive' if self._alive else 'dead'}")
         print("Gems:")
-        for gem in self.gems:
+        for gem in self._gems:
             print(gem)
 
 
 
-# player1 = Player.with_name("Carlos")
+player1 = Player.with_name("Carlos")
 
-# print(player1.short_status())
-# player1.set_gem_health(1, 0.7)
-# player1.set_gem_health(2, 0.9)
-# print('-'*80)
-# print(player1)
+print(player1.short_status())
+player1.set_gem_health(1, 0.7)
+player1.set_gem_health(2, 0.9)
+print('-'*80)
+print(player1)
