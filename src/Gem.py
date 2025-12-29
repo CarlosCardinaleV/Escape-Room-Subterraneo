@@ -43,23 +43,29 @@ class Gem:
     # Properties for gem attributes
     @property
     def health(self):
+        """Returns the health of the gem."""
         return self._health
     @property
     def owner(self):
+        """Returns the owner of the gem."""
         return self._owner
     @property
     def gem_type(self):
+        """Returns the type of the gem."""
         return self._gem_type
     @property
     def attack(self):
+        """Returns the attack value of the gem."""
         return self._attack
     @property
     def defense(self):
+        """Returns the defense value of the gem."""
         return self._defense
     
     # Setter for health
     @health.setter
     def health(self, value):
+        """Sets the health of the gem."""
         # Health cannot be negative
         self._health = max(0.0, value)
 
@@ -71,7 +77,7 @@ class Gem:
             f"Health: {self._health}\n"
             f"Attack: {self._attack}\n"
             f"Defense: {self._defense}\n"
-            f"Gem Type: {self._gem_type}\n"
+            f"Type: {self._gem_type}\n"
         )
 
     def summary(self):
