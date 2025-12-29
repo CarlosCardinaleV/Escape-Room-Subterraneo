@@ -10,7 +10,7 @@ class Lock:
     to the door/lock it belongs to.
     """
     _name: str = "Lock #"
-    _gems: List[Gem] = field(default_factory=List)
+    _gems: List[Gem] = field(default_factory=list)
     _health: float = 1.0
     _destroyed: bool = False
 
@@ -24,7 +24,7 @@ class Lock:
             ]
 
     @classmethod
-    def for_lock(cls, name: str):
+    def lock_name(cls, name: str):
         """Creates a lock with three random gems."""
         return cls(_name=name)
 
@@ -56,7 +56,7 @@ class Lock:
         Used by the Spell class.
         """
         gem = self.get_gem(index)
-        gem._health = health
+        gem.health = health
 
     # Lock health property
     @property
@@ -85,7 +85,7 @@ class Lock:
         """Simplified information shown during gameplay."""
         info = (
             f"Lock: {self._name}\n"
-            f"Gems:\n"
+            f"Gems-> "
             f"First Gem: {self._gems[0]._health * 100:.1f}%   "
             f"Second Gem: {self._gems[1]._health * 100:.1f}%   "
             f"Third Gem: {self._gems[2]._health * 100:.1f}%\n"
@@ -99,6 +99,3 @@ class Lock:
         print("Gems:")
         for gem in self._gems:
             print(gem)
-
-cave_lock = Lock.for_lock("Cave Entrance")
-cave_lock.display()
