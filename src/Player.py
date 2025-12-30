@@ -50,6 +50,11 @@ class Player:
         gem = self.get_gem(index)
         gem._health = health
 
+    @property
+    def gems(self) -> List[Gem]:
+        """Returns the list of gems owned by the player."""
+        return self._gems
+
     # Properties for name, oxygen, alive
     @property
     def name(self) -> str:
