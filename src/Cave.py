@@ -24,6 +24,7 @@ class Cave:
     _lethality_levels: List[float] = field(default_factory=list)
 
     def __post_init__(self):
+        """Initializes caves with default locks, oxygen, and lethality levels."""
         if not self._locks:
             lock_names = ["Dragon Entrance", "Crystal Abyss", "Whispering Grotto"]
 
@@ -142,13 +143,13 @@ class Cave:
             summary += "\n"
         return summary
 
-cave = Cave()
-print(cave.cave_status(0))
-print(cave.cave_status(1))
-print(cave.cave_status(2))
-cave.decrease_cave_oxygen(0, 0.25)
-cave.decrease_cave_oxygen(1, 0.35)
-cave.decrease_cave_oxygen(2, 0.55)
-print(cave.cave_status(0))
-print(cave.cave_status(1))
-print(cave.cave_status(2))
+# cave = Cave()
+# print(cave.cave_status(0))
+# print(cave.cave_status(1))
+# print(cave.cave_status(2))
+# cave.decrease_cave_oxygen(0, 0.25)
+# cave.decrease_cave_oxygen(1, 0.35)
+# cave.decrease_cave_oxygen(2, 0.55)
+# print(cave.cave_status(0))
+# print(cave.cave_status(1))
+# print(cave.cave_status(2))
